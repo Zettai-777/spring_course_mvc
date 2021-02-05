@@ -1,23 +1,47 @@
 package ru.zettai.spring.mvc.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/employee")
 public class MyController {
 
     @RequestMapping("/")
-    public String showFirstView(){
+    public String showFirstView() {
         return "first-view";
     }
 
     @RequestMapping("/askDetails")
-    public String askEmployeeDetails(){
+    public String askEmployeeDetails() {
         return "ask-emp-details-view";
     }
 
+
+
+//    @RequestMapping("/showDetails")
+//    public String showEmployeeDetails(HttpServletRequest request, Model model) {
+//        String employeeName = request.getParameter("employeeName");
+//        String employeeSurname = request.getParameter("employeeSurname");
+//        String fullEmployeeName = "Mr. " + employeeName + " " + employeeSurname;
+//        String ageEmployee = request.getParameter("employeeAge");
+//        model.addAttribute("fullNameAttribute", fullEmployeeName);
+//        model.addAttribute("ageEmpAttribute", ageEmployee);
+//        return "show-emp-details-view";
+//    }
+
     @RequestMapping("/showDetails")
-    public String showEmployeeDetails(){
+    public String showEmployeeDetails(@RequestParam("employeeName") String employeeName
+            , @RequestParam("employeeSurname") String employeeSurname
+            , @RequestParam("employeeAge") String ageEmployee, Model model) {
+        String fullEmployeeName = "Mr. " + employeeName + " " + employeeSurname;
+        model.addAttribute("fullNameAttribute", fullEmployeeName);
+        model.addAttribute("ageEmpAttribute", ageEmployee);
         return "show-emp-details-view";
     }
+
 }

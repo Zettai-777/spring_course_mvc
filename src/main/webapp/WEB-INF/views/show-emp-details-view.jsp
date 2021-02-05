@@ -8,7 +8,10 @@
 <br>
 <br>
 
-<h1>Your name: ${param.employeeName}</h1>
+<%--<h1>Your name: ${param.employeeName}</h1>--%>
+
+<h1>Your name: ${fullNameAttribute}, ${ageEmpAttribute} years old.</h1>
+
 <br>
 <a href="${pageContext.request.contextPath}/">To the main page</a>
 </body>

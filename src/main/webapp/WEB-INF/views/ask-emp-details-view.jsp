@@ -9,8 +9,11 @@
 <form action="showDetails" method="get">
 
     <input type="text" name="employeeName"
-    placeholder="Write your name"/>
-
+           placeholder="Write your name"/>
+    <input type="text" name="employeeSurname"
+           placeholder="Write your surname"/>
+    <input type="text" name="employeeAge"
+           placeholder="Write your age">
     <input type="submit">
 
 </form>
