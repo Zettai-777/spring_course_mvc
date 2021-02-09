@@ -9,11 +9,17 @@
 <form:form action="showDetails" modelAttribute="employee">
 
     Name: <form:input path="name"/>
+    <form:errors path="name"/>
     <br><br>
+
     Surname: <form:input path="surName"/>
+    <form:errors path="surName"/>
     <br><br>
+
     Salary: <form:input path="salary"/>
+    <form:errors path="salary"/>
     <br><br>
+
     Department <form:select path="department">
                 <%--  HardCoded option  --%>
     <%--    <form:option value="Information Technology" label="IT"/>--%>
@@ -44,6 +50,16 @@
     <%--       Map value and label check-boxes         --%>
     <form:checkboxes path="languages" items="${employee.languageList}"/>
     <br><br>
+
+
+    Phone: <form:input path="phoneNumber"/>
+    <form:errors path="phoneNumber"/>
+    <br><br>
+
+    Email: <form:input path="email"/>
+    <form:errors path="email"/>
+    <br><br>
+
     <input type="submit" value="OK">
 </form:form>
 

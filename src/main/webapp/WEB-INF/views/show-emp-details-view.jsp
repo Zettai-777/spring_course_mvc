@@ -20,6 +20,8 @@
             <li>${lang}</li>
         </c:forEach>
     </ul>
+<p><b><i>Your phone's number: </i></b>${employee.phoneNumber}</p>
+<p><b><i>Your email: </i></b>${employee.email}</p>
 <br>
 <a href="${pageContext.request.contextPath}/employee/">To the main page</a>
 </body>

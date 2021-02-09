@@ -1,18 +1,40 @@
 package ru.zettai.spring.mvc.models;
 
+import ru.zettai.spring.mvc.validation.CheckEmail;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
+    @Size(min = 2, max = 100, message = " Attention: name have to be in range of 2 - 100 symbols")
     private String name;
+
+    @NotBlank(message = " Attention: surname is required field!")
     private String surName;
+
+    @Min(value = 500, message = " Attention: in our company salary cannot been lower than 500.")
+    @Max(value = 500002, message = " Attention: hold on! Even director don't take that much money!")
     private int salary;
+
+
     private String department;
+
+    @NotBlank(message = " Attention: you have to choice type of car!")
     private String carBrand;
+
+//    @NotBlank(message = " Attention: you have to choice at least one (native) language!")
+    private String[] languages;
+
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = " Attention: please use pattern xxx-xx-xx")
+    private String phoneNumber;
+
+    @CheckEmail
+    private String email;
 
     private Map<String, String> departments;
     private Map<String, String> carBrands;
-    private String[] languages;
+
     private Map<String, String> languageList;
 
     public Employee() {
@@ -102,6 +124,22 @@ public class Employee {
 
     public void setLanguageList(Map<String, String> languageList) {
         this.languageList = languageList;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
